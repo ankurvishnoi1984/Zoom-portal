@@ -1,0 +1,248 @@
+
+
+/* .Logo{
+    width: 40%;
+    margin-right: 20px;
+}
+
+
+.navdiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    height: 75px;
+    padding: 0px 15px;
+    background: linear-gradient(to right, #004ef9, #79a3ff) !important;
+    color: #fff !important;
+}
+.flexdiv{
+  display: flex;
+  gap:10px;
+}
+.sidebar{
+    width:16%;
+   
+    min-height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+} */
+/* .maindiv{
+    width:84%;
+    
+} */
+/* .pimage{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.profilediv{
+    display: flex;
+    align-items: center;
+}
+
+.side-but{
+    background: linear-gradient(to right, #004ef9, #79a3ff);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-weight:500;
+    font-size: 16px;
+}
+.side-but1{
+    text-align: center;
+    padding: 10px;
+    font-weight:500;
+    font-size: 16px;
+}
+.side-span{
+    margin-right: 15px;
+}
+
+.submenu{
+    padding: 5px 30px;
+    list-style-type: disc;
+
+}
+.submenuitem:hover{
+    color: rgb(88, 88, 197);
+    cursor: pointer;
+}
+.logoutdiv{
+    right: 0px;
+    top: 76px;
+    position: absolute;
+    background: #e6e2e2;
+    padding: 7px 22px;
+    color: black;
+}
+
+
+.menuicon{
+    display: none;
+} */
+
+
+/* .inputmobile{
+    display: none !important;
+        }
+        .inputpc{
+    display: block !important;
+        } */
+/* responsive code  */
+
+/* @media screen and (max-width: 767px) {
+    .menuicon{
+        display: inline;
+    }
+    .Logo{
+        width: 65%;
+        margin-bottom: 5px;
+    }
+    .navdiv{
+        width: 100%;
+    }
+    .sidebar{
+        width: 40%;
+    }
+    .maindiv{
+      width: 60%;
+    }
+    .maindiv1{
+        width: 100%;
+    }
+    .tbstyle{
+        padding: 0px !important;
+    }
+    .inputmobile{
+display: block !important;
+    }
+    .inputpc{
+display: none !important;
+    }
+    
+  } */
+
+
+  
+.Logo{
+    width: 40%;
+    margin-right: 20px;
+}
+
+
+.navdiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    height: 75px;
+    padding: 0px 15px;
+    background: linear-gradient(to right, #004ef9, #79a3ff) !important;
+    color: #fff !important;
+}
+.flexdiv{
+  display: flex;
+  gap:10px;
+}
+.sidebar{
+    width:16%;
+   
+    min-height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.maindiv{
+    width:84%;
+    
+    /* height: 100vh; */
+}
+.pimage{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.profilediv{
+    display: flex;
+    align-items: center;
+}
+
+.side-but{
+    background: linear-gradient(to right, #004ef9, #79a3ff);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-weight:500;
+    font-size: 16px;
+}
+.side-but1{
+    text-align: center;
+    padding: 10px;
+    font-weight:500;
+    font-size: 16px;
+}
+.side-span{
+    margin-right: 15px;
+}
+
+.submenu{
+    padding: 5px 30px;
+    list-style-type: disc;
+
+}
+.submenuitem:hover{
+    color: rgb(88, 88, 197);
+    cursor: pointer;
+}
+.logoutdiv{
+    right: 0px;
+    top: 76px;
+    position: absolute;
+    z-index: 9999999;
+    background: #e6e2e2;
+    padding: 7px 22px;
+    color: black;
+}
+
+
+.menuicon{
+    display: none;
+}
+
+.inputmobile{
+    display: none !important;
+        }
+        .inputpc{
+    display: block !important;
+        }
+/* responsive code  */
+
+@media screen and (max-width: 767px) {
+    .menuicon{
+        display: inline;
+    }
+    .Logo{
+        width: 65%;
+        margin-bottom: 5px;
+    }
+    .navdiv{
+        width: 100%;
+    }
+    .sidebar{
+        width: 40%;
+    }
+    .maindiv{
+      width: 60%;
+    }
+    .maindiv1{
+        width: 100%;
+    }
+    .tbstyle{
+        padding: 0px !important;
+    }
+    .inputmobile{
+display: block !important;
+    }
+    .inputpc{
+display: none !important;
+    }
+    
+  }

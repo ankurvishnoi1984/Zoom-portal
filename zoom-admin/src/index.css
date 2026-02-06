@@ -1,0 +1,77 @@
+/* for action menu  */
+
+.dropdown-container-box {
+    position: absolute;
+    display: inline-block;
+  }
+  
+  /* Gear Icon Button */
+  .gear-button-box {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    color: #333;
+  }
+  
+  .gear-button-box:hover {
+    color: #007bff;
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-menu-box {
+    display: none; 
+    position: absolute;
+    top: 25px;
+    /* left: 0; */
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 160px;
+    z-index: 1000;
+  }
+  
+  /* Show dropdown on hover */
+  .dropdown-container-box:hover .dropdown-menu-box {
+    display: block;
+  }
+  
+  /* Dropdown Items */
+  .dropdown-item-box {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .dropdown-item-box:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+  }
+  
+  
+  .msgnote{
+    color: #bb0909;
+    font-weight: 500;
+    display: none;
+    font-size: 16px;
+  }
+  
+  
+  
+  @media screen and (max-width: 767px) {
+    .msgnote{
+      display: block;
+    }
+    .dropdown-container-box {
+        position: relative;
+      }
+  }

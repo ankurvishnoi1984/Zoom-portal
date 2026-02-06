@@ -1,0 +1,41 @@
+.tabName{
+ font-weight: 500;
+ font-size: large;
+}
+.fw-bold{
+    font-weight: 500;
+    font-size: large;
+}
+.fw-bolder{
+    font-weight: 500 !important;
+}
+.fs-4{
+    font-size: 15px;
+    font-weight: 500;
+}
+.fs-5{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.mdetails{
+  
+  font-size: 18px;
+}
+.nav-tabs {
+    border-bottom: 1px solid #b3bec9 !important;
+}
+ .nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #fff;
+    border-color: #b3bec9 #b3bec9 #fff !important;
+}
+
+.b-color{
+   
+    border-color:  #e0dada;
+}
+
+.mart{
+    margin-top: 32px;
+}
