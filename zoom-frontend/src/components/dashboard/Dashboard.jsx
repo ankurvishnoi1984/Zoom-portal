@@ -58,7 +58,7 @@ const Dashboard = () => {
   console.log("userid", userId)
   async function getTotalPhysical(){
     try {
-      const res = await axios.post(`${API_URL}/physicalMeeting/getTotalMeet`,{sdate,edate});
+      const res = await axios.post(`${API_URL}/physicalMeeting/getTotalMeet`,{sdate,edate,roleId});
       if(res.data.errorCode==="1"){
         setTotalPhysicalMeet(res.data.data[0])
       }
@@ -69,7 +69,7 @@ const Dashboard = () => {
 
   async function getTotalVirtual(){
     try {
-      const res = await axios.post(`${API_URL}/virtualMeet/getTotalMeet`,{sdate,edate});
+      const res = await axios.post(`${API_URL}/virtualMeet/getTotalMeet`,{sdate,edate,roleId});
       if(res.data.errorCode==="1"){
         setTotalVirtualMeet(res.data.data[0])
       }
@@ -82,7 +82,7 @@ const Dashboard = () => {
 
   async function getUpcomingPhysical(){
     try {
-      const res = await axios.post(`${API_URL}/physicalMeeting/getTotalUpcoming`,{sdate,edate});
+      const res = await axios.post(`${API_URL}/physicalMeeting/getTotalUpcoming`,{sdate,edate,roleId});
       if(res.data.errorCode==="1"){
         setUpcomingPhysicalMeet(res.data.data[0])
       }
@@ -93,7 +93,7 @@ const Dashboard = () => {
   
   async function getUpcomingVirtual(){
     try {
-      const res = await axios.post(`${API_URL}/virtualMeet/getTotalUpcoming`,{sdate,edate});
+      const res = await axios.post(`${API_URL}/virtualMeet/getTotalUpcoming`,{sdate,edate,roleId});
       if(res.data.errorCode==="1"){
         setUpcomingVirtualMeet(res.data.data[0])
       }
@@ -105,7 +105,7 @@ const Dashboard = () => {
 
   async function getCompletePhysical(){
     try {
-      const res = await axios.post(`${API_URL}/physicalMeeting/getTotalCompleted`,{sdate,edate});
+      const res = await axios.post(`${API_URL}/physicalMeeting/getTotalCompleted`,{sdate,edate,roleId});
       if(res.data.errorCode==="1"){
         setCompletePhysicalMeet(res.data.data[0])
       }
@@ -116,7 +116,7 @@ const Dashboard = () => {
 
   async function getCompleteVirtual(){
     try {
-      const res = await axios.post(`${API_URL}/virtualMeet/getTotalCompleted`,{sdate,edate});
+      const res = await axios.post(`${API_URL}/virtualMeet/getTotalCompleted`,{sdate,edate,roleId});
       if(res.data.errorCode==="1"){
         setCompleteVirtualMeet(res.data.data[0])
       }
@@ -148,7 +148,7 @@ const Dashboard = () => {
 
     try {
      setLoader(true)
-      const res = await axios.post(`${API_URL}/physicalMeeting/getMeetingWithStatus`, {mtype:meetingState1,searchName:searchName1});
+      const res = await axios.post(`${API_URL}/physicalMeeting/getMeetingWithStatus`, {mtype:meetingState1,searchName:searchName1,userId,roleId,sdate,edate});
        
       if(res.data.errorCode == "1"){
 
@@ -166,7 +166,7 @@ const Dashboard = () => {
     
     try {
       setLoader(true)
-      const res = await axios.post(`${API_URL}/virtualMeet/getMeetingWithStatus`,{mtype:meetingState,searchName});
+      const res = await axios.post(`${API_URL}/virtualMeet/getMeetingWithStatus`,{mtype:meetingState,searchName,roleId,userId,sdate,edate});
       
       if(res.data.errorCode=="1"){
         setAllVirtualMeeting(res.data.data);
@@ -243,7 +243,7 @@ const Dashboard = () => {
 
   const getVirtualMeetingData = async () => {
     try {
-      const res = await axios.post(`${API_URL}/virtualMeet/getMeetingData`,{sdate,edate});
+      const res = await axios.post(`${API_URL}/virtualMeet/getMeetingData`,{sdate,edate,roleId,userId});
 
       setAllVirtualMeetingData(res.data.data);
     } catch (error) {
@@ -253,7 +253,7 @@ const Dashboard = () => {
 
   const getPhysicalMeetingData = async () => {
     try {
-      const res = await axios.post(`${API_URL}/physicalMeeting/getMeetingData`,{sdate,edate});
+      const res = await axios.post(`${API_URL}/physicalMeeting/getMeetingData`,{sdate,edate,roleId,userId});
 
       setAllPhysicalMeetingData(res.data.data);
     } catch (error) {

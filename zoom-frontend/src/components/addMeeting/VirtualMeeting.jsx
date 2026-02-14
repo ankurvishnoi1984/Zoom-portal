@@ -78,6 +78,8 @@ const VirtualMeeting = () => {
      const [filterData, setFilterData] = useState([])
 
      const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
+
+     const userId = sessionStorage.getItem("userId")
      
 
     // console.log("mandatory filed",mandatoryField)
@@ -430,7 +432,7 @@ const VirtualMeeting = () => {
             const accountNum = response?.data?.data[0]?.Account_no
     
             console.log(hostId)
-            const res = await axios.post(`${API_URL}/virtualMeet/createMeeting`,{topic:title,duration,start_time:sdate,hostId,cname,cmobile,deptId,clientId})
+            const res = await axios.post(`${API_URL}/virtualMeet/createMeeting`,{topic:title,duration,start_time:sdate,hostId,cname,cmobile,deptId,clientId,userId})
             console.log("after meeting created",res)
 
             if(res.data.errorCode=="1"){

@@ -40,7 +40,7 @@ const AdminRoutes = require('./routes/adminRoutes')
 
 const { connectToDatabase } = require('./config/dbConnection');
 const { addSpeaker, updateSpeaker } = require('./controller/speakerDetlCont');
-const { appendSheet } = require('./config/googleSheet');
+// const { appendSheet } = require('./config/googleSheet');
 
 // multer configuration
 
@@ -702,7 +702,7 @@ app.post('/addData', async (req, res) => {
     const phone = "5452512585"
 
     // Add data to Google Sheets
-    await appendSheet('1W1jP6-wmjaqQKZ4__QxdO1PyQVmF3sjDmyXN70hUP_U', [name, email, phone]);
+    // await appendSheet('1W1jP6-wmjaqQKZ4__QxdO1PyQVmF3sjDmyXN70hUP_U', [name, email, phone]);
 
     res.status(200).json({ message: 'Data added successfully' });
   

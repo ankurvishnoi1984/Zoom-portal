@@ -64,6 +64,7 @@ const PhysicalMeeting = () => {
     const [posterid,setPosterId] = useState(0);
 
     const {deptId,clientId} = useContext(LoginContext)
+    const userId = sessionStorage.getItem("userId")
     
     console.log("yyyyyyyyyyyyyyyyyy", deptId,clientId)
    // console.log("all speaker",allSpeaker)
@@ -343,7 +344,7 @@ const PhysicalMeeting = () => {
         }
           setLoader(true)
         try {
-          const res  = await  axios.post(`${API_URL}/physicalMeeting/createMeeting`, {title,sdate,edate,cname,cmobile,venue,deptId,clientId});
+          const res  = await  axios.post(`${API_URL}/physicalMeeting/createMeeting`, {title,sdate,edate,cname,cmobile,venue,deptId,clientId,userId});
              
            if(res.data.errorCode=="1"){
             setfkmid(res.data.pmid)

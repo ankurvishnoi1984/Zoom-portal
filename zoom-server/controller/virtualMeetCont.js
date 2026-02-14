@@ -4,7 +4,7 @@ const { connectToDatabase } = require('../config/dbConnection');
 const logger = require("../utils/logger");
 const axios = require('axios');
 const {SPREADSHEET_ID} = require('../utils/constant');
-const { appendSheet, updateGoogleSheet, deleteGoogleSheet } = require('../config/googleSheet');
+// const { appendSheet, updateGoogleSheet, deleteGoogleSheet } = require('../config/googleSheet');
 
 exports.addMeeting = async (req,res)=>{
    
@@ -131,7 +131,7 @@ exports.addMeeting = async (req,res)=>{
                 values(@fkwcid,@meetingId,@hostId,@passcode,@roomUrl,@startUrl,@attendeWebUrl,@joinUrl,@crdate,@userId,@sdate,@edate,@fkid)`;
 
                   const result2 = await request.query(query1);
-                  await appendSheet(SPREADSHEET_ID, meetingData);
+                  // await appendSheet(SPREADSHEET_ID, meetingData);
                    res.send({
                        message:"meeting created",
                        errorCode:"1",
@@ -537,7 +537,7 @@ try {
           const updatedData = [meetingId,fdate,ftime,duration,null,null,null,title,null,null];
          
           // Update Google Sheet
-          await updateGoogleSheet(SPREADSHEET_ID, meetingId, updatedData);
+          // await updateGoogleSheet(SPREADSHEET_ID, meetingId, updatedData);
           logger.info('virtual Meeting Update Successfully')  
           res.status(200).json({msg:'virtual Meeting Update Successfully'})
         }
@@ -1106,7 +1106,7 @@ exports.softDeleteMeeting = async (req, res) => {
                 getMessageInfo: "An internal server error occurred"
             });
         } else {
-          await deleteGoogleSheet(SPREADSHEET_ID, meetingId);
+          // await deleteGoogleSheet(SPREADSHEET_ID, meetingId);
             logger.info('Virtual Meeting Delete Successfully');
             res.status(200).json({ msg: 'Virtual Meeting Delete Successfully', errorCode: "1" });
         }

@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../navbar/navbar'
-import SummaryReport from '../SummaryReport/Summaryreport'
+import SummaryReport from '../SummaryReport/SummaryReport'
 
 const SummaryReportPage = () => {
   return (
