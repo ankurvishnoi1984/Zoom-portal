@@ -43,3 +43,17 @@
 .popup-buttons button:hover {
   background-color: #0056b3;
 }
+
+.text-style{
+  height: 380px;
+  width: 500px;
+  padding: 10px;
+}
+
+.popup1 {
+  max-width: 70%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
