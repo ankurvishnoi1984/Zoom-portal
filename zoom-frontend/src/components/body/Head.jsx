@@ -39,10 +39,15 @@ const Head = () => {
   return (
     <div>
         <div className='navdiv'>
-           <div className='menuicon' onClick={handelShowMenu}><IoMdMenu size={40}/></div>
-           <div className='cendiv'>
-           <img src="/images/Logo.png" alt="Logo" className="Logo"/>
-           </div>
+            <div className='leftnav'>
+    <div className='menuicon' onClick={handelShowMenu}>
+      <IoMdMenu size={26}/>
+    </div>
+
+  <div className="logo-pill">
+  <img src="/images/Logo.png" alt="Logo" className="Logo"/>
+</div>
+  </div>
            <div className="profilediv" onClick={handelIsLogout}>
                <div>
                <img src="/images/avatar-4.jpg" className="pimage" alt="profile image" />
@@ -64,7 +69,7 @@ const Head = () => {
         </div>
         <div className='flexdiv'>
             {showMenu && (<div className='sidebar'>
-                <Link to={"/dashboard"}>
+             <Link to="/dashboard" className="no-underline">
                 <div className={` ${linknum===1 ?"side-but":"side-but1"} mt-3`}  onClick={()=>handelSetActiveLink(1)}>
                 <span className="side-span"><i className="ti-home"></i></span>
                     Dashboard
@@ -74,14 +79,15 @@ const Head = () => {
                 <span className="side-span"><i className="ti-layout-grid2-alt"></i></span>
                     Add Meeting</div>
                 {showItem && (
-                    <ul className="submenu">
-                    <Link to='/physicalMeeting'>
-                    <li className="submenuitem">Physical</li>
-                    </Link>
-                    <Link to='/virtualMeeting'> 
-                    <li className="submenuitem">Virtual</li>
-                    </Link>
-                </ul>
+             <ul className="submenu">
+  <Link to="/physicalMeeting" className="submenu-link">
+    <li className="submenuitem">Physical</li>
+  </Link>
+
+  <Link to="/virtualMeeting" className="submenu-link">
+    <li className="submenuitem">Virtual</li>
+  </Link>
+</ul>
                 )}
             </div>)}
             <div className={`maindiv ${showMenu ? '' : 'maindiv1'}`}>

@@ -1,248 +1,271 @@
+/* ===== HEADER ===== */
 
-
-/* .Logo{
-    width: 40%;
-    margin-right: 20px;
-}
-
-
-.navdiv{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width:100%;
-    height: 75px;
-    padding: 0px 15px;
-    background: linear-gradient(to right, #004ef9, #79a3ff) !important;
-    color: #fff !important;
-}
-.flexdiv{
+.navdiv {
+  height: 64px;
+background: linear-gradient(90deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
   display: flex;
-  gap:10px;
-}
-.sidebar{
-    width:16%;
-   
-    min-height: 100vh;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-} */
-/* .maindiv{
-    width:84%;
-    
-} */
-/* .pimage{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
-.profilediv{
-    display: flex;
-    align-items: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.side-but{
-    background: linear-gradient(to right, #004ef9, #79a3ff);
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    font-weight:500;
-    font-size: 16px;
-}
-.side-but1{
-    text-align: center;
-    padding: 10px;
-    font-weight:500;
-    font-size: 16px;
-}
-.side-span{
-    margin-right: 15px;
-}
+/* menu icon */
 
-.submenu{
-    padding: 5px 30px;
-    list-style-type: disc;
-
-}
-.submenuitem:hover{
-    color: rgb(88, 88, 197);
-    cursor: pointer;
-}
-.logoutdiv{
-    right: 0px;
-    top: 76px;
-    position: absolute;
-    background: #e6e2e2;
-    padding: 7px 22px;
-    color: black;
-}
-
-
-.menuicon{
-    display: none;
-} */
-
-
-/* .inputmobile{
-    display: none !important;
-        }
-        .inputpc{
-    display: block !important;
-        } */
-/* responsive code  */
-
-/* @media screen and (max-width: 767px) {
-    .menuicon{
-        display: inline;
-    }
-    .Logo{
-        width: 65%;
-        margin-bottom: 5px;
-    }
-    .navdiv{
-        width: 100%;
-    }
-    .sidebar{
-        width: 40%;
-    }
-    .maindiv{
-      width: 60%;
-    }
-    .maindiv1{
-        width: 100%;
-    }
-    .tbstyle{
-        padding: 0px !important;
-    }
-    .inputmobile{
-display: block !important;
-    }
-    .inputpc{
-display: none !important;
-    }
-    
-  } */
-
-
-  
-.Logo{
-    width: 40%;
-    margin-right: 20px;
-}
-
-
-.navdiv{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width:100%;
-    height: 75px;
-    padding: 0px 15px;
-    background: linear-gradient(to right, #004ef9, #79a3ff) !important;
-    color: #fff !important;
-}
-.flexdiv{
+.menuicon {
+  cursor: pointer;
   display: flex;
-  gap:10px;
-}
-.sidebar{
-    width:16%;
-   
-    min-height: 100vh;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-.maindiv{
-    width:84%;
-    
-    /* height: 100vh; */
-}
-.pimage{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
-.profilediv{
-    display: flex;
-    align-items: center;
+  align-items: center;
+  color: white;
 }
 
-.side-but{
-    background: linear-gradient(to right, #004ef9, #79a3ff);
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    font-weight:500;
-    font-size: 16px;
-}
-.side-but1{
-    text-align: center;
-    padding: 10px;
-    font-weight:500;
-    font-size: 16px;
-}
-.side-span{
-    margin-right: 15px;
+/* logo */
+
+.cendiv {
+  display: flex;
+  align-items: center;
 }
 
-.submenu{
-    padding: 5px 30px;
-    list-style-type: disc;
-
-}
-.submenuitem:hover{
-    color: rgb(88, 88, 197);
-    cursor: pointer;
-}
-.logoutdiv{
-    right: 0px;
-    top: 76px;
-    position: absolute;
-    z-index: 9999999;
-    background: #e6e2e2;
-    padding: 7px 22px;
-    color: black;
+.Logo {
+  height: 42px;
+  object-fit: contain;
 }
 
+/* profile */
 
-.menuicon{
-    display: none;
+.profilediv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+  padding: 6px 10px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
 }
 
-.inputmobile{
-    display: none !important;
-        }
-        .inputpc{
-    display: block !important;
-        }
-/* responsive code  */
+.profilediv:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
 
-@media screen and (max-width: 767px) {
-    .menuicon{
-        display: inline;
-    }
-    .Logo{
-        width: 65%;
-        margin-bottom: 5px;
-    }
-    .navdiv{
-        width: 100%;
-    }
-    .sidebar{
-        width: 40%;
-    }
-    .maindiv{
-      width: 60%;
-    }
-    .maindiv1{
-        width: 100%;
-    }
-    .tbstyle{
-        padding: 0px !important;
-    }
-    .inputmobile{
-display: block !important;
-    }
-    .inputpc{
-display: none !important;
-    }
-    
+.pimage {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+/* logout dropdown */
+
+.logoutdiv {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  width: 150px;
+  background: white;
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+  animation: fadeIn 0.2s ease;
+}
+
+.logoutdiv li {
+  list-style: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logoutdiv li:hover {
+  background: #f1f5f9;
+}
+
+/* ===== LAYOUT ===== */
+
+.flexdiv {
+  display: flex;
+  min-height: calc(100vh - 64px);
+  background: #f5f7fb;
+}
+
+/* ===== SIDEBAR ===== */
+
+.sidebar {
+  width: 250px;
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  border-right: 1px solid #e5e7eb;
+  padding: 18px 12px;
+  transition: all 0.3s ease;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.04);
+}
+
+/* menu buttons */
+
+.side-but,
+.side-but1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 18px;
+  margin: 8px 0;
+  border-radius: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* active */
+
+.side-but {
+  background: linear-gradient(90deg, #2563eb, #4f83ff);
+  color: white;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
+  transform: translateX(2px);
+}
+
+/* inactive */
+
+.side-but1 {
+  color: #374151;
+}
+
+.side-but1:hover {
+  background: #eef2ff;
+  color: #1d4ed8;
+  transform: translateX(2px);
+}
+
+/* icons */
+
+.side-span {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+/* ===== SUBMENU ===== */
+/* ===== SUBMENU CONTAINER ===== */
+
+.submenu {
+  margin-left: 46px;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #e5e7eb;
+  animation: fadeIn 0.25s ease;
+}
+
+/* remove link underline */
+
+.submenu-link {
+  text-decoration: none;
+  display: block;
+}
+
+/* ===== SUBMENU ITEM ===== */
+
+.submenuitem {
+  list-style: none;
+  padding: 10px 14px;
+  margin: 6px 0;
+  border-radius: 10px;
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.22s ease;
+}
+
+/* hover */
+
+.submenuitem:hover {
+  background: #eef2ff;
+  color: #1d4ed8;
+  transform: translateX(4px);
+}
+
+/* subtle bullet dot */
+
+.submenuitem::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: #c7d2fe;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: all 0.22s ease;
+}
+
+/* dot highlight on hover */
+
+.submenuitem:hover::before {
+  background: #2563eb;
+  transform: translateY(-50%) scale(1.2);
+}
+/* ===== MAIN AREA ===== */
+
+.maindiv {
+  flex: 1;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.maindiv1 {
+  flex: 1;
+  padding: 20px;
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    left: 0;
+    top: 64px;
+    height: calc(100vh - 64px);
+    z-index: 999;
+  }
+}
+.leftnav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-pill {
+     background: rgb(255 255 255 / 83%);
+  backdrop-filter: blur(6px);
+  padding: 6px 14px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.Logo {
+  height: 45px;
+  object-fit: contain;
+}
