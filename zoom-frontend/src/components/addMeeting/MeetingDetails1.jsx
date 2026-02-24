@@ -724,164 +724,156 @@ const MeetingDetails1 = () => {
 
                                                     </div>
                                                     <div className="col-lg-8">
-                                                        <div className="card">
-                                                            <div className="card-body">
-                                                                <div className="alert alert-success mdetails fw-bold" role="alert">
-                                                                    <i className="icofont icofont-checked mr-2"></i>
-                                                                    Meeting Title : {singalMeet.Title}
-                                                                </div>
-                                                                <div className="card">
-                                                                    <div className="card-status bg-blue"></div>
-                                                                    <div className="card-header">
-                                                                        <h3 className="card-title">Meeting Details</h3>
+                                                   <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
 
-                                                                    </div>
-                                                                    <div className="card-body">
+  {/* Success Alert */}
+  <div className="mb-6 rounded-lg border border-emerald-300 bg-emerald-50 px-4 py-3 text-emerald-700 font-semibold">
+    <i className="icofont icofont-checked mr-2"></i>
+    Meeting Title : {singalMeet.Title}
+  </div>
 
-                                                                        <div className="m-2 mdetails">
-                                                                            <b>Meeting Type: </b> Online Meeting
-                                                                        </div>
-                                                                        <div className="m-2 mdetails">
-                                                                            <b>Meeting Start Date: </b> {singalMeet.EventStartDateTime}
-                                                                        </div>
-                                                                        <div className="m-2 mdetails">
-                                                                            <b>Meeting End Date: </b> {singalMeet.EventEndDateTime}
-                                                                        </div>
-                                                                        
-                                                                        <div className="m-2 mdetails">
-                                                                            <b>Coordinator Name: </b> {singalMeet.Name}
-                                                                        </div>
-                                                                        <div className="m-2 mdetails">
-                                                                            <b>Coordinator Mobile: </b> {singalMeet.Mobile}
-                                                                        </div>
-                                                                        {/* <div className="m-2 d-flex mdetails">
-                                                                            <b>Presenter Link: </b> <input name="url"
-                                                                                type="text" className="form-control"
-                                                                                value={singalMeet.PresenterUrl} readOnly
-                                                                                ref={inputRef1} />
-                                                                                 <button className="btn btn-primary ml-2" onClick={handleCopyClick1}>
-                                                                                        Copy
-                                                                                    </button>
-                                                                        </div> */}
-                                                                        <div className="m-2 d-flex mdetails">
-                                                                            <b>Attendence Link: </b> <input name="url"
-                                                                                type="text" className="form-control"
-                                                                                value={singalMeet.AttendeeUrl}
-                                                                                readOnly
-                                                                                ref={inputRef2}
-                                                                                />
-                                                                                <button className="btn btn-primary ml-2" title='Copy Link' onClick={handleCopyClick2}>
-                                                                                        Copy
-                                                                                    </button>
-                                                                        </div>
-                                                                        <div className="m-2 mdetails">
-                                                                            <b>Meeting Id: </b> {singalMeet.MeetingId}
-                                                                        </div>
-                                                                        <div className="m-2 mdetails">
-                                                                            <b>Passcode: </b> {singalMeet.Passcode}
-                                                                        </div>
-                                                                        <div className="m-2 mdetails">
-                                                                            <b>Download: </b> <button type="button"
-                                                                                className="btn btn-danger"
-                                                                                onClick={()=> handelSave(1)}
-                                                                                ><i
-                                                                                    className="icofont icofont-download-alt mr-4"></i>
-                                                                                Download
-                                                                                JPG</button>
+  {/* ================= Meeting Details ================= */}
+  <div className="bg-white rounded-xl border border-gray-200 shadow-sm mb-6">
+    
+    <div className="px-6 py-4 border-b border-gray-100">
+      <h3 className="text-xl font-semibold text-gray-800">
+        Meeting Details
+      </h3>
+    </div>
 
-                                                                                <button className="btn btn-danger ml-2" onClick={handelSave1}>
-                                                                                <i className="icofont icofont-envelope mr-4"></i>
-                                                                                    Email
-                                                                                </button>
+    <div className="p-6 space-y-3 text-sm text-gray-700">
 
-                                                                                <div className="dropdown ml-2">
-                                                                                                    <button className="btn btn-danger"
-                                                                                                    onClick={handleButtonClick}>  
-                                                                                                    <i className="icofont icofont-plus"></i>
-                                                                                                    Add To Calender
-                                                                                                    {/* <i className="icofont icofont-calendar"></i> */}
-                                                                                                    </button>
-                                                                                                    {showOptions && (
-                                                                                                        <div className="dropdown-content">
-                                                                                                        <div className='d-flex justify-content-between dmain' onClick={handleOptionChange1} >
-                                                                                                            <div>
-                                                                                                               <p className='sptag'>Gmail</p>
-                                                                                                            </div>
-                                                                                                            <div>
-                                                                                                                <img className='simg' src="https://s2.webeventconsole.com/common/icon/calendar/gmail.png" alt="Gmail" />
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                       
-                                                                                                        <div className='d-flex justify-content-between dmain' onClick={handleOptionChange2}>
-                                                                                                            <div>
-                                                                                                               <p className='sptag'>Yahoo</p>
-                                                                                                            </div>
-                                                                                                            <div>
-                                                                                                                <img className='simg' src="https://s2.webeventconsole.com/common/icon/calendar/yahoo.png" alt="Yahoo" />
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div className='d-flex justify-content-between dmain' onClick={handleOptionChange3}>
-                                                                                                            <div>
-                                                                                                               <p className='sptag'>HotMail</p>
-                                                                                                            </div>
-                                                                                                            <div>
-                                                                                                                <img className='simg' src="https://s2.webeventconsole.com/common/icon/calendar/hotmail.png" alt="HotMail" />
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div className='d-flex justify-content-between dmain' onClick={handleOptionChange4}>
-                                                                                                            <div>
-                                                                                                               <p className='sptag'>OutLook</p>
-                                                                                                            </div>
-                                                                                                            <div>
-                                                                                                                <img className='simg' src="https://s2.webeventconsole.com/common/icon/calendar/outlook.png" alt="OutLook" />
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        
-                                                                                                        </div>
-                                                                                                    )}
-                                                                                </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="card">
-                                                                    <div className="card-status bg-red-dark"></div>
-                                                                    <div className="card-header">
-                                                                        <h3 className="card-title">Speaker Details</h3>
+      <p><span className="font-semibold">Meeting Type:</span> Online Meeting</p>
+      <p><span className="font-semibold">Meeting Start Date:</span> {singalMeet.EventStartDateTime}</p>
+      <p><span className="font-semibold">Meeting End Date:</span> {singalMeet.EventEndDateTime}</p>
+      <p><span className="font-semibold">Coordinator Name:</span> {singalMeet.Name}</p>
+      <p><span className="font-semibold">Coordinator Mobile:</span> {singalMeet.Mobile}</p>
 
-                                                                    </div>
-                                                                    {speaker && speaker.length>0 && speaker.map((e)=>(
-                                                                        <div key={e.Id} className="pl-4 pr-4">
-                                                                        <div className="card">
-                                                                            <div className="card-body">
-                                                                                <div className="media">
-                                                                                      <img  crossOrigin="anonymous" className='Spk_image' src={`${API_URL}/uploads/speaker/${e.SpkImage}`} alt="Speaker Image" />
-                                                                                    <div className="media-body">
-                                                                                        <h4 className="m-0">{e.SpkName}
-                                                                                        </h4>
-                                                                                        <p className="text-muted mb-0">
-                                                                                        {e.SpkDesignation}</p>
-                                                                                        <p className="text-muted mb-0">{e.Bio1}
-                                                                                        </p>
-                                                                                        <p className="text-muted mb-0">{e.Bio2}
-                                                                                        </p>
-                                                                                        <p className="text-muted mb-0">{e.Bio3}
-                                                                                        </p>
+      {/* Attendance Link */}
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+        <span className="font-semibold whitespace-nowrap">Attendance Link:</span>
 
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                        
-                                                                       
+        <input
+          type="text"
+          value={singalMeet.AttendeeUrl}
+          readOnly
+          ref={inputRef2}
+          className="flex-1 h-10 rounded-lg border border-blue-200 px-3 text-sm
+                     focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
 
+        <button
+          onClick={handleCopyClick2}
+          className="h-10 px-4 rounded-lg bg-blue-600 text-white font-medium
+                     hover:bg-blue-700 transition"
+        >
+          Copy
+        </button>
+      </div>
 
-                                                                    </div>
-                                                                    ))}
-                                                                </div>
+      <p><span className="font-semibold">Meeting Id:</span> {singalMeet.MeetingId}</p>
+      <p><span className="font-semibold">Passcode:</span> {singalMeet.Passcode}</p>
 
-                                                            </div>
-                                                        </div>
+      {/* Buttons */}
+      <div className="flex flex-wrap gap-3 pt-2">
+
+        <button
+          onClick={() => handelSave(1)}
+          className="px-4 h-10 rounded-lg bg-red-600 text-white font-medium
+                     hover:bg-red-700 transition flex items-center gap-2"
+        >
+          <i className="icofont icofont-download-alt"></i>
+          Download JPG
+        </button>
+
+        <button
+          onClick={handelSave1}
+          className="px-4 h-10 rounded-lg bg-red-600 text-white font-medium
+                     hover:bg-red-700 transition flex items-center gap-2"
+        >
+          <i className="icofont icofont-envelope"></i>
+          Email
+        </button>
+
+        {/* Calendar Dropdown */}
+        <div className="relative">
+          <button
+            onClick={handleButtonClick}
+            className="px-4 h-10 rounded-lg bg-red-600 text-white font-medium
+                       hover:bg-red-700 transition flex items-center gap-2"
+          >
+            <i className="icofont icofont-plus"></i>
+            Add To Calendar
+          </button>
+
+          {showOptions && (
+            <div className="absolute z-50 mt-2 w-48 rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden">
+
+              {[
+                { name: "Gmail", img: "gmail.png", fn: handleOptionChange1 },
+                { name: "Yahoo", img: "yahoo.png", fn: handleOptionChange2 },
+                { name: "HotMail", img: "hotmail.png", fn: handleOptionChange3 },
+                { name: "Outlook", img: "outlook.png", fn: handleOptionChange4 },
+              ].map((item) => (
+                <div
+                  key={item.name}
+                  onClick={item.fn}
+                  className="flex items-center justify-between px-4 py-2 hover:bg-gray-50 cursor-pointer"
+                >
+                  <span className="text-sm font-medium">{item.name}</span>
+                  <img
+                    className="w-5 h-5"
+                    src={`https://s2.webeventconsole.com/common/icon/calendar/${item.img}`}
+                    alt={item.name}
+                  />
+                </div>
+              ))}
+
+            </div>
+          )}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  {/* ================= Speaker Details ================= */}
+  <div className="bg-white rounded-xl border border-gray-200 shadow-sm">
+
+    <div className="px-6 py-4 border-b border-gray-100">
+      <h3 className="text-xl font-semibold text-gray-800">
+        Speaker Details
+      </h3>
+    </div>
+
+    <div className="p-6 space-y-4">
+
+      {speaker?.map((e) => (
+        <div
+          key={e.Id}
+          className="flex gap-4 items-start p-4 rounded-xl border border-gray-100 hover:shadow-sm transition"
+        >
+          <img
+            crossOrigin="anonymous"
+            src={`${API_URL}/uploads/speaker/${e.SpkImage}`}
+            alt="Speaker"
+            className="w-16 h-16 rounded-full object-cover border"
+          />
+
+          <div>
+            <h4 className="font-semibold text-gray-800">{e.SpkName}</h4>
+            <p className="text-sm text-gray-500">{e.SpkDesignation}</p>
+            <p className="text-sm text-gray-500">{e.Bio1}</p>
+            <p className="text-sm text-gray-500">{e.Bio2}</p>
+            <p className="text-sm text-gray-500">{e.Bio3}</p>
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </div>
+
+</div>
 
                                                     </div>
                                                 </div>

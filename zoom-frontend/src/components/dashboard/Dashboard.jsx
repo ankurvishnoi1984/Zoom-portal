@@ -759,7 +759,7 @@ const Dashboard = () => {
         <Link
           to="/virtualMeeting"
           className="h-10 px-4 inline-flex items-center justify-center
-                     rounded-lg bg-none bg-blue-600 text-white text-sm font-semibold
+                     rounded-lg bg !bg-blue-600 text-white text-sm font-semibold
                      shadow-sm hover:bg-blue-700 transition"
         >
           + Add Meeting
@@ -886,7 +886,7 @@ const Dashboard = () => {
     <Link
       to="/physicalMeeting"
       className="h-10 px-4 inline-flex items-center justify-center
-                 rounded-lg bg-blue-600 text-white text-sm font-semibold
+                 rounded-lg !bg-blue-600 text-white text-sm font-semibold
                  shadow-sm hover:bg-blue-700 transition"
     >
       + Add Meeting

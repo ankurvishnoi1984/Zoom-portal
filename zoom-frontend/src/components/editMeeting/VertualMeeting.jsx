@@ -1,10 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-// import '../../../assets/css/style.css'
-// import '../../../assets/css/bootstrap/css/bootstrap.min.css'
-// import '../../../assets/icon/themify-icons/themify-icons.css'
-// import '../../../assets/icon/font-awesome/css/font-awesome.min.css'
-// import '../../../assets/icon/icofont/css/icofont.css'
-// import '../../../assets/css/jquery.mCustomScrollbar.css'
 import axios from 'axios'
 
 import './PhysicalMeeting.css'
@@ -657,388 +651,459 @@ const handleConfirm = async () => {
                                     <div className="page-wrapper">
 
                                         <div className="page-body">
-                                            <div className="card container">
-                                                <div className="card-header">
-                                                    <h5>Edit Virtual Meeting</h5>
+                                            <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-sm !border !border-gray-200">
+  <div className="px-8 py-6 border-b border-gray-100">
+    <h2 className="text-xl font-semibold text-gray-800">
+      Edit Virtual Meeting
+    </h2>
+    <p className="text-sm text-gray-500 mt-1">
+      Update meeting details
+    </p>
+  </div>
 
-
-                                                </div>
-                                                <div className="card-block tbstyle tab-icon">
+  <div className="p-4">
+                                              
                                                    
                                                     <div className="row ">
                                                         <div className="col-lg-12 col-xl-12">
+                                                       
                                                            
-                                                            <div className="sub-title">Fill all details</div>
-                                                           
-                                                            <ul className="nav nav-tabs md-tabs ">
-                                                                <div className="nav-item fw-bolder" onClick={()=>handelIndexChange(1)}>
-                                                                    <a className={`nav-link ${currentIndex===1 ?'active':""}`} 
-                                                                      ><i
-                                                                            className="icofont icofont-meeting-add"></i>Meeting
-                                                                        Details</a>
-                                                                    <div className="slide"></div>
-                                                                </div>
-                                                                <div className="nav-item fw-bolder" onClick={()=>handelIndexChange(2)}>
-                                                                    <a className={`nav-link ${currentIndex===2 ?'active':""}`} 
-                                                                       ><i
-                                                                            className="icofont icofont-ui-settings "></i>Configuration</a>
-                                                                    <div className="slide"></div>
-                                                                </div>
-                                                                <div className="nav-item fw-bolder" onClick={()=>handelIndexChange(3)}>
-                                                                    <a className={`nav-link ${currentIndex===3 ?'active':""}`}
-                                                                       ><i
-                                                                            className="icofont icofont-ui-user"></i>Speaker
-                                                                        Details</a>
-                                                                    <div className="slide"></div>
-                                                                </div>
-                                                                <li className="nav-item fw-bolder" onClick={()=>handelIndexChange(4)}>
-                                                                    <a className={`nav-link ${currentIndex===4 ?'active':""}`}
-                                                                        ><i
-                                                                            className="icofont icofont-ui-file"></i>Select
-                                                                        Template</a>
-                                                                    <div className="slide"></div>
-                                                                </li>
-                                                            </ul>
+                                                          <div className="flex flex-wrap gap-2 mb-8">
+  {[
+    { id: 1, label: "Meeting Details" },
+    { id: 2, label: "Configuration" },
+    { id: 3, label: "Speaker Details" },
+    { id: 4, label: "Select Template" },
+  ].map((tab) => (
+    <button
+      key={tab.id}
+      onClick={() => handelIndexChange(tab.id)}
+      className={`px-4 py-2 rounded-lg text-sm font-medium transition
+        ${
+          currentIndex === tab.id
+            ? "bg-blue-600 text-white shadow"
+            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+        }`}
+    >
+      {tab.label}
+    </button>
+  ))}
+</div>
                                                             
                                                             <div className="tab-content card-block">
-                                                                {currentIndex===1 ? (<div className="tab-pane active" id="home7" role="tabpanel">
-                                                                    <form action="" className="mx-auto ">
-                                                                        <div className="form-group row container mx-auto">
-                                                                            <label
-                                                                                className="col-sm-4 col-form-label">Meeting
-                                                                                Title</label>
-                                                                            <div className="col-sm-8">
-                                                                                <input type="text" className="form-control"
-                                                                                value={title}
-                                                                                 onChange={(e)=>{
-                                                                                    setTitle(e.target.value)
-                                                                                }}/>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div className="form-group row container mx-auto">
-                                                                            <label
-                                                                                className="col-sm-4 col-form-label">Meeting
-                                                                                Date</label>
-                                                                            <div className="col-sm-8">
-                                                                                <input type="datetime-local" className="form-control" 
-                                                                                value={sdate}
-                                                                                onChange={(e)=>{
-                                                                                    setDate(e.target.value)
-                                                                                }}/>
-                                                                            </div>
-                                                                        </div>
-                                                                        {/* <div className="form-group row container mx-auto">
-                                                                            <label
-                                                                                className="col-sm-4 col-form-label">Meeting
-                                                                                Starting Time</label>
-                                                                            <div className="col-sm-8">
-                                                                                <input type="time" className="form-control"/>
-                                                                            </div>
-                                                                        </div> */}
-                                                                        <div className="form-group row container mx-auto">
-                                                                            <label
-                                                                                className="col-sm-4 col-form-label">Meeting
-                                                                                Duration</label>
-                                                                            <div className="col-sm-8">
-                                                                                <input type="number" className="form-control" 
-                                                                                value={duration}
-                                                                                placeholder='Enter Duration in Min'onChange={(e)=>{
-                                                                                    setDuration(e.target.value)
-                                                                                }}/>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div className="form-group row container mx-auto">
-                                                                            <label
-                                                                                className="col-sm-4 col-form-label">Coordinator
-                                                                                Name</label>
-                                                                            <div className="col-sm-8">
-                                                                                <input type="text" className="form-control" value={cname} onChange={(e)=>{
-                                                                                    setMCoordinatorName(e.target.value)
-                                                                                }}/>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div className="form-group row container mx-auto">
-                                                                            <label
-                                                                                className="col-sm-4 col-form-label ">Coordinator
-                                                                                Mobile No.</label>
-                                                                            <div className="col-sm-8">
-                                                                                <input type="text" className="form-control" value={cmobile} onChange={(e)=>{
-                                                                                    setMobileNumber(e.target.value)
-                                                                                }}/>
-                                                                            </div>
-                                                                        </div>
-                                                                        {/* <div className="form-group row container mx-auto">
-                                                                            <label className="col-sm-4 col-form-label">Is
-                                                                                Webcast Live</label>
-                                                                            <div className="col-sm-8">
-                                                                                <label>
-                                                                                    <input type="radio" name="trueFalse"
-                                                                                        value="true"/> True
-                                                                                </label>
+                                                                {currentIndex===1 ? 
+                                                                (
+                                                                <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
 
-                                                                                <label>
-                                                                                    <input type="radio" name="trueFalse"
-                                                                                        value="false"/> False
-                                                                                </label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div className="form-group row container mx-auto">
-                                                                            <label className="col-sm-4 col-form-label">Is
-                                                                                Visitor Allowed</label>
-                                                                            <div className="col-sm-8">
-                                                                                <label>
-                                                                                    <input type="radio" name="trueFalse"
-                                                                                        value="true"/> True
-                                                                                </label>
+  {/* Title */}
+  <div className="md:col-span-2">
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Meeting Title
+    </label>
+    <input
+      type="text"
+      value={title}
+      onChange={(e) => setTitle(e.target.value)}
+      className="w-full h-11 rounded-lg !border !border-blue-200 px-3
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      placeholder="Enter meeting title"
+    />
+  </div>
 
-                                                                                <label>
-                                                                                    <input type="radio" name="trueFalse"
-                                                                                        value="false"/> False
-                                                                                </label>
-                                                                            </div>
-                                                                        </div> */}
-                                                                    </form>
-                                                                        <div className="text-right">
-                                                                            <button className="btn hor-grd btn-grd-primary "
-                                                                            onClick={handelDataSubmit}
-                                                                                 >
+  {/* Date */}
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Meeting Date
+    </label>
+    <input
+      type="datetime-local"
+      value={sdate}
+      onChange={(e) => setDate(e.target.value)}
+      className="w-full h-11 rounded-lg !border !border-blue-200 px-3
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
 
-                                                                                Next</button>
-                                                                        </div>
+  {/* Duration */}
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Duration (minutes)
+    </label>
+    <input
+      type="number"
+      value={duration}
+      onChange={(e) => setDuration(e.target.value)}
+      className="w-full h-11 rounded-lg !border !border-blue-200 px-3
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
 
-                                                                </div>): currentIndex===2 ? (<div className="tab-pane active">
+  {/* Coordinator */}
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Coordinator Name
+    </label>
+    <input
+      type="text"
+      value={cname}
+      onChange={(e) => setMCoordinatorName(e.target.value)}
+      className="w-full h-11 rounded-lg !border !border-blue-200 px-3
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
 
-<form action="" className="mx-auto ">
-    
+  {/* Mobile */}
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Coordinator Mobile
+    </label>
+    <input
+      type="number"
+      value={cmobile}
+      onChange={(e) => setMobileNumber(e.target.value)}
+      className="w-full h-11 rounded-lg !border !border-blue-200 px-3
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
 
-   <div className="form-group row container mx-auto">
-      <label className="col-sm-4 col-form-label">Mandatory Field</label>
-      <div className="col-sm-8">
-        <select
-          name="select"
-          className="form-control"
-           onChange={handleSelectChange}
-        >
-          <option value="">Select Value</option>
-          {formData &&
-            formData.map((e) => (
-              <option
-                key={e.Fid}
-                value={e.FieldCode}
-                data-fcode={e.FieldCode}
-                data-fname={e.FieldName}
-                data-fman={e.FieldMandatory}
-                data-fdis={e.DisplayOrder}
-              >
-                {e.FieldName}
-              </option>
-            ))}
-        </select>
+  <div className="flex justify-end mt-8 md:col-span-2">
+    <button
+      onClick={handelDataSubmit}
+      className="px-6 h-11 rounded-lg bg-blue-600 text-white font-semibold
+                 shadow-sm hover:bg-blue-700 transition"
+    >
+      Next →
+    </button>
+  </div>
+</div>
+                                                                ): currentIndex===2 ? 
+                                                                (
+                                                       <div className="space-y-6">
+
+  {/* Mandatory Field */}
+  <div className="grid md:grid-cols-3 gap-4 items-start">
+    <label className="text-sm font-semibold text-gray-700 md:pt-3">
+      Mandatory Field
+    </label>
+
+    <div className="md:col-span-2">
+      <select
+        name="select"
+        onChange={handleSelectChange}
+        className="w-full h-11 rounded-xl !border !border-blue-200 px-4 text-sm
+                   focus:outline-none focus:ring-2 focus:ring-blue-500
+                   bg-white"
+      >
+        <option value="">Select Value</option>
+        {formData?.map((e) => (
+          <option
+            key={e.Fid}
+            value={e.FieldCode}
+            data-fcode={e.FieldCode}
+            data-fname={e.FieldName}
+            data-fman={e.FieldMandatory}
+            data-fdis={e.DisplayOrder}
+          >
+            {e.FieldName}
+          </option>
+        ))}
+      </select>
+    </div>
+  </div>
+
+  {/* Optional Fields */}
+  <div className="grid md:grid-cols-3 gap-4 items-start">
+    <label className="text-sm font-semibold text-gray-700 md:pt-2">
+      Optional Fields
+    </label>
+
+    <div className="md:col-span-2">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+
+        {/* Optional list */}
+        {formDataOptinal?.map((e) => (
+          <label
+            key={e.Fid}
+            className="flex items-center gap-2 p-2 rounded-lg
+                       hover:bg-blue-50 cursor-pointer !border !border-gray-100"
+          >
+            <input
+              type="checkbox"
+              value={e.FieldCode}
+              checked={selectedCheckboxes.some(
+                (checkbox) => checkbox.fcode === e.FieldCode
+              )}
+              onChange={() =>
+                handleCheckboxChange(
+                  e.FieldCode,
+                  e.FieldMandatory,
+                  e.FieldName,
+                  e.DisplayOrder
+                )
+              }
+              className="h-4 w-4 text-blue-600 rounded
+                         focus:ring-blue-500 border-gray-300"
+            />
+            <span className="text-sm text-gray-700">
+              {e.FieldName}
+            </span>
+          </label>
+        ))}
+
+        {/* Filtered list */}
+        {filterData?.map((e) => (
+          <label
+            key={e.Fid}
+            className="flex items-center gap-2 p-2 rounded-lg
+                       hover:bg-blue-50 cursor-pointer !border !border-gray-100"
+          >
+            <input
+              type="checkbox"
+              value={e.FieldCode}
+              checked={selectedCheckboxes.some(
+                (checkbox) => checkbox.fcode === e.FieldCode
+              )}
+              onChange={() =>
+                handleCheckboxChange(
+                  e.FieldCode,
+                  "O",
+                  e.FieldName,
+                  e.DisplayOrder
+                )
+              }
+              className="h-4 w-4 text-blue-600 rounded
+                         focus:ring-blue-500 border-gray-300"
+            />
+            <span className="text-sm text-gray-700">
+              {e.FieldName}
+            </span>
+          </label>
+        ))}
+
       </div>
     </div>
-   
-    <div className="form-group row container mx-auto">
-        <label
-            className="col-sm-4 col-form-label">Optional
-            Fields</label>
-        <div className="col-sm-8">
+  </div>
 
-            {formDataOptinal && formDataOptinal.map((e)=>(
+  {/* Host Username */}
+  <div className="grid md:grid-cols-3 gap-4 items-start">
+    <label className="text-sm font-semibold text-gray-700 md:pt-3">
+      Host Username
+    </label>
 
-            <label className="labelcs " key={e.Fid}>
-                <input type="checkbox"
-                    name="checkboxOne"
-                     value={e.FieldCode}
-                     //checked={selectedCheckboxes.includes(e.FieldCode)}
-                     checked={selectedCheckboxes.some((checkbox) => checkbox.fcode === e.FieldCode)}
-              onChange={() => handleCheckboxChange(e.FieldCode,e.FieldMandatory,e.FieldName,e.DisplayOrder)}
-                     />
-                {e.FieldName}
-            </label>
-            ))}
-
-            {filterData && filterData.map((e)=>(
-
-            <label className="labelcs " key={e.Fid}>
-                <input type="checkbox"
-                    name="checkboxOne"
-                    value={e.FieldCode}
-                    checked={selectedCheckboxes.some((checkbox) => checkbox.fcode === e.FieldCode)}
-                    //checked={selectedCheckboxes.includes(e.FieldCode)}
-            onChange={() => handleCheckboxChange(e.FieldCode,"O",e.FieldName,e.DisplayOrder)}
-                    />
-                {e.FieldName}
-            </label>
-            ))}
-        </div>
+    <div className="md:col-span-2">
+      <input
+        type="text"
+        value={hostUserName}
+        onChange={(e) => setHostUserName(e.target.value)}
+        placeholder="Enter host username"
+        className="w-full h-11 rounded-xl !border !border-blue-200 px-4 text-sm
+                   focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
     </div>
+  </div>
 
-    <div className="form-group row container mx-auto">
-        <label className="col-sm-4 col-form-label">Host
-            Username</label>
-        <div className="col-sm-8">
-            <input type="text" className="form-control"
-            value={hostUserName}
-            onChange={(e)=>setHostUserName(e.target.value)}
-            />
-        </div>
+  {/* Host Password */}
+  <div className="grid md:grid-cols-3 gap-4 items-start">
+    <label className="text-sm font-semibold text-gray-700 md:pt-3">
+      Host Password
+    </label>
+
+    <div className="md:col-span-2">
+      <input
+        type="text"
+        value={hostPassword}
+        onChange={(e) => setHostPassword(e.target.value)}
+        placeholder="Enter host password"
+        className="w-full h-11 rounded-xl !border !border-blue-200 px-4 text-sm
+                   focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
     </div>
-    <div className="form-group row container mx-auto">
-        <label className="col-sm-4 col-form-label">Host
-            Password</label>
-        <div className="col-sm-8">
-            <input type="text" className="form-control"
-            value={hostPassword}
-            onChange={(e)=>setHostPassword(e.target.value)}
-            />
-        </div>
-    </div>
+  </div>
+
+  {/* Buttons */}
+  <div className="flex items-center justify-between pt-4">
+    <button
+      onClick={() => handelIndexChange(1)}
+      className="px-5 h-11 rounded-lg !border !border-gray-300
+                 text-gray-700 font-medium hover:bg-gray-50 transition"
+    >
+      ← Previous
+    </button>
+
+    <button
+      onClick={handelConfigurationSubmit}
+      className="px-6 h-11 rounded-lg bg-blue-600 text-white font-semibold
+                 shadow hover:bg-blue-700 transition"
+    >
+      Next →
+    </button>
+  </div>
+
+</div>
+): currentIndex===3 ? (
     
-    <div className="text-right">
+    <div className="tab-pane active">
+   
+     {/* Top Action */}
+     <div className="flex items-center justify-between mb-6">
+       <h3 className="text-lg font-semibold text-gray-800">
+         Speaker Details
+       </h3>
+   
+       <button
+         onClick={handelSetPopUp}
+         className="inline-flex items-center gap-2 px-4 py-2
+                    bg-blue-600 hover:bg-blue-700
+                    text-white text-sm font-semibold
+                    rounded-lg shadow transition"
+       >
+         <i className="icofont icofont-plus"></i>
+         Add Speaker
+       </button>
+     </div>
+   
+     {/* Speaker List */}
+   <div className="space-y-4">
+  {allSpeaker && allSpeaker.length > 0 ? (
+    allSpeaker.map((e) => (
+      <div
+        key={e.Id}
+        className="flex items-center justify-between
+                   bg-white !border !border-gray-200
+                   rounded-xl p-4 shadow-sm hover:shadow-md transition"
+      >
+        <div className="flex items-center gap-4">
+          <img
+            crossOrigin="anonymous"
+            src={`${API_URL}/uploads/speaker/${e.SpkImage}`}
+            alt="speaker"
+            className="w-16 h-16 rounded-full object-cover border"
+          />
 
+          <div>
+            <h4 className="font-semibold text-gray-800">
+              {e.SpkName}
+            </h4>
+            <p className="text-sm text-gray-500">
+              {e.SpkDesignation}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => handelSetEditPopUp(e.Id)}
+            className="w-9 h-9 flex items-center justify-center
+                       rounded-full bg-blue-100 text-blue-600
+                       hover:bg-blue-200 transition"
+          >
+            <i className="icofont icofont-edit"></i>
+          </button>
+
+          <button
+            onClick={() => handelSpekerDelete(e.Id, e.SpkImage)}
+            className="w-9 h-9 flex items-center justify-center
+                       rounded-full bg-red-100 text-red-600
+                       hover:bg-red-200 transition"
+          >
+            <i className="icofont icofont-trash"></i>
+          </button>
+        </div>
+      </div>
+    ))
+  ) : (
+    <div className="text-center py-10 text-gray-400">
+      No speakers added yet
     </div>
-</form>
-
-
-<div className="">
-        <button className="btn hor-grd btn-grd-primary "
-            
-            onClick={()=>handelIndexChange(1)}
-            >
-
-            Previous</button>
-        <button
-            className="btn hor-grd btn-grd-primary float-right"
-           
-            //onClick={()=>{handelIndexChange(3)}}
-            onClick={handelConfigurationSubmit}
-           >
-
-            Next</button>
-    </div>
-</div>): currentIndex===3 ? (<div className="tab-pane active" id="messages7" role="tabpanel">
-                                                                    <ul className="show-notification"
-                                                                        style={{display:'block'}}>
-                                                                        <div className="text-center m-3">
-                                                                            <button className="btn btn-grd-primary "
-                                                                            onClick={handelSetPopUp}
-                                                                                data-toggle="modal"
-                                                                                data-target="#exampleModalCenter">
-                                                                                <i className="icofont icofont-plus"
-                                                                                    style={{color:'#fff'}}></i>
-                                                                                Add
-                                                                                Speaker</button>
-                                                                        </div>
-                                                                        {allSpeaker && allSpeaker.length>0 && allSpeaker.map((e)=>(
-                                                                            <div key={e.Id}>
-                                                                            <div className="media">
-                                                                                <img className="d-flex align-self-center img-radius"
-                                                                                  crossOrigin="anonymous"
-                                                                                    src={`${API_URL}/uploads/speaker/${e.SpkImage}`}
-                                                                                    alt="Generic placeholder image"
-                                                                                    style={{height:'100px',width:'100px'}}/>
-                                                                                <div className="media-body ml-5">
-                                                                                    <h5 className="notification-user">
-                                                                                        {e.SpkName}
-                                                                                        </h5>
-                                                                                    <p className="notification-msg">
-                                                                                    {e.SpkDesignation}
-                                                                                    </p>
-                                                                                    <span className="notification-time">
-                                                                                        <div
-                                                                                            className="card-block tbstyle remove-label">
-                                                                                            <button onClick={()=>handelSetEditPopUp(e.Id)}
-                                                                                                className="btn btn-facebook"
-                                                                                               ><i
-                                                                                                    className="icofont icofont-edit"></i></button>
-
-                                                                                            <button onClick={()=>handelSpekerDelete(e.Id,e.SpkImage)}
-                                                                                                className="btn btn-google-plus ml-2"><i
-                                                                                                    className="icofont icofont-trash"></i></button>
-
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                            </div>
-                                                                            <hr/>
-                                                                        </div>
-                                                                          ))}
-                                                                        
-                                                                    </ul>
-                                                                    <div className="">
-                                                                        <button className="btn hor-grd btn-grd-primary "
-                                                                            
-                                                                            onClick={()=>handelIndexChange(2)}
-                                                                            >
-
-                                                                            Previous</button>
-                                                                        <button
-                                                                            className="btn hor-grd btn-grd-primary float-right"
-                                                                            
-                                                                            onClick={()=>{handelIndexChange1(4)}}
-                                                                            >
-
-                                                                            Next</button>
-                                                                    </div>
-                                                                </div>):currentIndex===4 ? (<div className="tab-pane active" id="settings7" role="tabpanel">
-                                                                    <form action="" id="Test &amp; Survey" method="post"
-                                                                        className="card tabcontent" style={{display:'block'}}>
-                                                                        <div className="row row-cards row-deck">
-                                                                        {posteList && posteList.length>0 && posteList.map((e)=>(
-
-                                                                                <div key={e.poster_id} className="col-sm-6 col-xl-4">
-                                                                                    <div className="card">
-                                                                                        <div className="containerc">
-                                                                                            <img 
-                                                                                        crossOrigin="anonymous"
-                                                                                        src={`${API_URL}/uploads/poster/${e.poster_name}`}
-                                                                                                alt="" className="imgposter"/>
-
-                                                                                            <div className="overlay">
-                                                                                                <div className="text"><button
-                                                                                                        onClick={()=>handelShowPreview(e.poster_name)}
-                                                                                                        type="button"
-                                                                                                        className="btn btn-danger"
-                                                                                                        data-toggle="modal"
-                                                                                                        data-target="#exampleModal2"><i
-                                                                                                            className="fe fe-file mr-2"></i>Preview
-                                                                                                        Invite</button><button
-                                                                                                        type="button"
-                                                                                                        className="btn btn-danger mt-2"><i
-                                                                                                            className="fe fe-code mr-2"></i>Preview
-                                                                                                        Website</button>
-                                                                                                </div>
-                                                                                            </div>
-
-                                                                                        </div>
-                                                                                        <button type="button"
-                                                                                        onClick={()=>handelPosterSelect(e.poster_name,e.poster_id)}
-                                                                                            className="btn btn-primary mx-auto mt-3 mb-3">Select</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                                ))}
-
-
-                                                                        </div>
-
-                                                                    </form>
-                                                                    <div className="">
-                                                                        <button className="btn hor-grd btn-grd-primary "
-                                                                           
-                                                                            onClick={()=>handelIndexChange(2)}
-                                                                           >
-
-                                                                            Previous</button>
-                                                                        <button
-                                                                            className="btn hor-grd btn-grd-primary float-right"
-                                                                           
-                                                                            onClick={handelSubmit}
-                                                                          >
-
-                                                                            Submit</button>
-                                                                    </div>
-
-                                                                </div>):("")}
+  )}
+</div>
+   
+     {/* Footer Buttons */}
+     <div className="flex justify-between mt-8">
+       <button
+         onClick={() => handelIndexChange(2)}
+         className="px-5 py-2 rounded-lg !border !border-gray-300
+                    text-gray-600 hover:bg-gray-100 transition"
+       >
+         ← Previous
+       </button>
+   
+       <button
+         onClick={() => handelIndexChange1(4)}
+         className="px-5 py-2 rounded-lg
+                    bg-blue-600 hover:bg-blue-700
+                    text-white font-semibold shadow transition"
+       >
+         Next →
+       </button>
+     </div>
+   
+   </div>
+                                                                ):currentIndex===4 ? (
+                                                                                                                  <div className="tab-pane active">
+                                                                 {/* Grid */}
+                                                                <form action="" id="Test &amp; Survey" method="post"
+                                                                                                                                        className="card tabcontent" style={{display:'block'}}>
+                                                                                                                                        <div className="row row-cards row-deck">
+                                                                                                                                        {posteList && posteList.length>0 && posteList.map((e)=>(
+                                                                
+                                                                                                                                                <div key={e.poster_id} className="col-sm-6 col-xl-4">
+                                                                                                                                                    <div className="card">
+                                                                                                                                                        <div className="containerc">
+                                                                                                                                                            <img 
+                                                                                                                                                        crossOrigin="anonymous"
+                                                                                                                                                        src={`${API_URL}/uploads/poster/${e.poster_name}`}
+                                                                                                                                                                alt="" className="imgposter"/>
+                                                                
+                                                                                                                                                            <div className="overlay">
+                                                                                                                                                                <div className="text"><button
+                                                                                                                                                                        onClick={()=>handelShowPreview(e.poster_name)}
+                                                                                                                                                                        type="button"
+                                                                                                                                                                        className="btn btn-danger"
+                                                                                                                                                                        data-toggle="modal"
+                                                                                                                                                                        data-target="#exampleModal2"><i
+                                                                                                                                                                            className="fe fe-file mr-2"></i>Preview
+                                                                                                                                                                        Invite</button><button
+                                                                                                                                                                        type="button"
+                                                                                                                                                                        className="btn btn-danger mt-2"><i
+                                                                                                                                                                            className="fe fe-code mr-2"></i>Preview
+                                                                                                                                                                        Website</button>
+                                                                                                                                                                </div>
+                                                                                                                                                            </div>
+                                                                
+                                                                                                                                                        </div>
+                                                                                                                                                        <button type="button"
+                                                                                                                                                        onClick={()=>handelPosterSelect(e.poster_name,e.poster_id)}
+                                                                                                                                                            className="btn btn-primary mx-auto mt-3 mb-3">Select</button>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                                ))}
+                                                                
+                                                                
+                                                                                                                                        </div>
+                                                                
+                                                                                                                                    </form>
+                                                               
+                                                                 {/* Bottom Buttons */}
+                                                                 <div className="flex justify-between mt-8">
+                                                                   <button
+                                                                     onClick={() => handelIndexChange(2)}
+                                                                     className="px-6 py-2 rounded-lg bg-gray-100 text-gray-700 font-semibold
+                                                                                hover:bg-gray-200 transition"
+                                                                   >
+                                                                     ← Previous
+                                                                   </button>
+                                                               
+                                                                   <button
+                                                                     onClick={handelSubmit}
+                                                                     className="px-6 py-2 rounded-lg bg-blue-600 text-white font-semibold
+                                                                                hover:bg-blue-700 shadow-md transition"
+                                                                   >
+                                                                     Submit →
+                                                                   </button>
+                                                                 </div>
+                                                               </div>
+                                                                ):("")}
                                                                 
                                                                 
                                                                 
@@ -1071,278 +1136,337 @@ const handleConfirm = async () => {
               />
             )}
             
-                        {isPopUpOpen && (
-             <div className="addspeaker" id="exampleModalCenter" tabIndex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true" onClick={()=>setIsPopUpOpen(false)}>
-                <div className="modal-dialog modal-dialog-centered" role="document">
-                    <div className="modal-content" onClick={e => {
-          // do not close modal if anything inside modal content is clicked
-          e.stopPropagation();
-        }}>
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLongTitle">Add Speaker</h5>
-                            <button type="button" onClick={handelClosePopup} className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            <div className="row">
-                            <div className="text-center mx-auto mb-2">
-                            <img
-                              src={image? URL.createObjectURL(image) :"/images/userimg.png"}
-                              alt="Speaker image"
-                              className="avatar1"
-                            />
-                            <label htmlFor="upload-input">
-                              <div className="icon-container">
-                                <i className="fas fa-pen"></i>
-                              </div>
-                            </label>
-                            
-                            <p>Speaker Photo</p>
-                            <input
-                              id="upload-input"
-                              type="file"
-                              accept="image/*"
-                              onChange={(e) => {
-                               
-                                setImage(
-                                  (e.target.files[0])
-                                );
-                              }}
-                            />
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-4 col-lg-4">
-                                    <label className="form-label">Speaker Name</label>
-                                </div>
-                                <div className="col-md-8 col-lg-8">
-                                    <div className="form-group">
-                                        <input type="text" className="form-control" name="example-text-input"
-                                            placeholder="Name"
-                                            onChange={(e)=>{
-                                                setName(e.target.value)  
-                                              }}/>
-                                    </div>
-                                </div>
-                            </div>
+                \{isPopUpOpen && (
+  <div
+    className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+    onClick={() => setIsPopUpOpen(false)}
+  >
+    <div
+      className="w-full max-w-lg bg-white rounded-2xl shadow-2xl p-6"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6 pb-3 border-b border-gray-100">
+        <h3 className="text-xl font-semibold text-gray-800">
+          Add Speaker
+        </h3>
 
-                            <div className="row">
-                                <div className="col-md-4 col-lg-4">
-                                    <label className="form-label">Speaker Qualification</label>
-                                </div>
-                                <div className="col-md-8 col-lg-8">
-                                    <div className="form-group">
-                                        <input type="text" className="form-control" name="example-text-input"
-                                            placeholder="Qualification"
-                                            onChange={(e)=>{
-                                                setQualification(e.target.value)  
-                                              }}/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-4 col-lg-4">
-                                    <label className="form-label">Speaker Bios Line 1</label>
-                                </div>
-                                <div className="col-md-8 col-lg-8">
-                                    <div className="form-group">
-                                        <input type="text" className="form-control" name="example-text-input"
-                                            placeholder=".........."
-                                            onChange={(e)=>{
-                                                setLine1(e.target.value)  
-                                              }}/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-4 col-lg-4">
-                                    <label className="form-label">Speaker Bios Line 2</label>
-                                </div>
-                                <div className="col-md-8 col-lg-8">
-                                    <div className="form-group">
-                                        <input type="text" className="form-control" name="example-text-input"
-                                            placeholder=".........."
-                                            onChange={(e)=>{
-                                                setLine2(e.target.value)  
-                                              }}/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-4 col-lg-4">
-                                    <label className="form-label">Speaker Bios Line 3</label>
-                                </div>
-                                <div className="col-md-8 col-lg-8">
-                                    <div className="form-group">
-                                        <input type="text" className="form-control" name="example-text-input"
-                                            placeholder=".........."
-                                            onChange={(e)=>{
-                                                setLine3(e.target.value)  
-                                              }}/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="modal-footer">
+        <button
+          onClick={handelClosePopup}
+          className="w-9 h-9 flex items-center justify-center
+                     rounded-full bg-gray-100 hover:bg-red-100
+                     text-gray-500 hover:text-red-600
+                     text-xl font-bold transition"
+        >
+          ×
+        </button>
+      </div>
 
-                            <button type="button" className="btn btn-primary"
-                            onClick={handelAddSpeaker}
-                            >Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>)}
+      {/* Avatar Upload */}
+      <div className="flex flex-col items-center mb-6">
+        <div className="relative group">
+          <img
+            src={image ? URL.createObjectURL(image) : "/images/userimg.png"}
+            alt="Speaker"
+            className="w-24 h-24 rounded-full object-cover border-4 border-gray-100 shadow"
+          />
 
-            {isEditPopUpOpen && (
-            <div className="addspeaker" id="editspeak" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLongTitle">Edit Speaker</h5>
-                            <button type="button" onClick={handelCloseEditPopup} className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            <div className="row">
-                            <div className="text-center mx-auto mb-2">
-                            <img
-                              src={image1 ? URL.createObjectURL(image1) : `${API_URL}/uploads/speaker/${imageName}`}
-                              alt="Speaker image"
-                              className="avatar1"
-                              crossOrigin="anonymous"
-                            />
-                            <label htmlFor="upload-input">
-                              <div className="icon-container">
-                                <i className="fas fa-pen"></i>
-                              </div>
-                            </label>
-                            
-                            <p>Speaker Photo</p>
-                            <input
-                              id="upload-input"
-                              type="file"
-                              accept="image/*"
-                              onChange={(e) => {
-                               
-                                setImage1(
-                                e.target.files[0]
-                                );
-                              }}
-                            />
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-4 col-lg-4">
-                                    <label className="form-label">Speaker Name</label>
-                                </div>
-                                <div className="col-md-8 col-lg-8">
-                                    <div className="form-group">
-                                        <input type="text" value={name1} className="form-control" name="example-text-input"
-                                            placeholder="Name"
-                                            onChange={(e)=>{
-                                               setName1(e.target.value)
-                                            }}
-                                            />
-                                    </div>
-                                </div>
-                            </div>
+          <label
+            htmlFor="upload-input"
+            className="absolute inset-0 flex items-center justify-center
+                       bg-black/40 rounded-full opacity-0 group-hover:opacity-100
+                       cursor-pointer transition"
+          >
+            <i className="fas fa-pen text-white"></i>
+          </label>
+        </div>
 
-                            <div className="row">
-                                <div className="col-md-4 col-lg-4">
-                                    <label className="form-label">Speaker Qualification</label>
-                                </div>
-                                <div className="col-md-8 col-lg-8">
-                                    <div className="form-group">
-                                        <input type="text" value={qualification1} className="form-control"
-                                            name="example-text-input" placeholder="Qualification"
-                                            onChange={(e)=>{
-                                                setQualification1(e.target.value)
-                                             }}
-                                            />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-4 col-lg-4">
-                                    <label className="form-label">Speaker Bios Line 1</label>
-                                </div>
-                                <div className="col-md-8 col-lg-8">
-                                    <div className="form-group">
-                                        <input type="text" value={line11} className="form-control" name="example-text-input"
-                                            placeholder=".........."
-                                            onChange={(e)=>{
-                                                setLine11(e.target.value)
-                                             }}
-                                            />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-4 col-lg-4">
-                                    <label className="form-label">Speaker Bios Line 2</label>
-                                </div>
-                                <div className="col-md-8 col-lg-8">
-                                    <div className="form-group">
-                                        <input type="text" value={line21} className="form-control" name="example-text-input"
-                                            placeholder=".........."
-                                            onChange={(e)=>{
-                                                setLine21(e.target.value)
-                                             }}
-                                            />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-4 col-lg-4">
-                                    <label className="form-label">Speaker Bios Line 3</label>
-                                </div>
-                                <div className="col-md-8 col-lg-8">
-                                    <div className="form-group">
-                                        <input type="text" value={line31} className="form-control" name="example-text-input"
-                                            placeholder=".........."
-                                            onChange={(e)=>{
-                                                setLine31(e.target.value)
-                                             }}
-                                            />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="modal-footer">
+        <input
+          id="upload-input"
+          type="file"
+          accept="image/*"
+          className="hidden"
+          onChange={(e) => setImage(e.target.files[0])}
+        />
 
-                            <button type="button" className="btn btn-primary"
-                              onClick={()=>handelSpeakerUpdate(sid)}
-                            >Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>)}
+        <p className="text-sm text-gray-500 mt-2">Speaker Photo</p>
+      </div>
+
+      {/* Form */}
+      <div className="space-y-4">
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Speaker Name
+          </label>
+          <input
+            type="text"
+            placeholder="Enter speaker name"
+            onChange={(e) => setName(e.target.value)}
+            className="w-full h-11 px-4 rounded-xl
+                       !border !border-blue-300 bg-white
+                       placeholder-gray-400
+                       focus:outline-none
+                       focus:ring-2 focus:ring-blue-500/40
+                       focus:border-blue-500
+                       hover:border-blue-400
+                       transition-all duration-200"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Speaker Qualification
+          </label>
+          <input
+            type="text"
+            placeholder="Enter qualification"
+            onChange={(e) => setQualification(e.target.value)}
+            className="w-full h-11 px-4 rounded-xl
+                       !border !border-blue-300 bg-white
+                       placeholder-gray-400
+                       focus:outline-none
+                       focus:ring-2 focus:ring-blue-500/40
+                       focus:border-blue-500
+                       hover:border-blue-400
+                       transition-all duration-200"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Speaker Bios Line 1
+          </label>
+          <input
+            type="text"
+            placeholder="Enter bio line"
+            onChange={(e) => setLine1(e.target.value)}
+            className="w-full h-11 px-4 rounded-xl !border !border-blue-300 bg-white
+                       focus:outline-none focus:ring-2 focus:ring-blue-500/40
+                       focus:border-blue-500 hover:border-blue-400 transition-all"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Speaker Bios Line 2
+          </label>
+          <input
+            type="text"
+            placeholder="Enter bio line"
+            onChange={(e) => setLine2(e.target.value)}
+            className="w-full h-11 px-4 rounded-xl !border !border-blue-300 bg-white
+                       focus:outline-none focus:ring-2 focus:ring-blue-500/40
+                       focus:border-blue-500 hover:border-blue-400 transition-all"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Speaker Bios Line 3
+          </label>
+          <input
+            type="text"
+            placeholder="Enter bio line"
+            onChange={(e) => setLine3(e.target.value)}
+            className="w-full h-11 px-4 rounded-xl !border !border-blue-300 bg-white
+                       focus:outline-none focus:ring-2 focus:ring-blue-500/40
+                       focus:border-blue-500 hover:border-blue-400 transition-all"
+          />
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="flex justify-end mt-8">
+        <button
+          onClick={handelAddSpeaker}
+          className="px-6 py-2.5 rounded-lg
+                     bg-blue-600 hover:bg-blue-700
+                     text-white font-semibold shadow
+                     transition"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+        {isEditPopUpOpen && (
+  <div
+    className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+    onClick={handelCloseEditPopup}
+  >
+    <div
+      className="w-full max-w-lg rounded-2xl bg-white shadow-2xl overflow-hidden"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+        <h5 className="text-xl font-semibold text-gray-800">
+          Edit Speaker
+        </h5>
+
+        <button
+          onClick={handelCloseEditPopup}
+          className="w-9 h-9 flex items-center justify-center rounded-full
+                     bg-gray-100 hover:bg-red-100
+                     text-gray-500 hover:text-red-600
+                     text-lg font-bold transition"
+        >
+          ✕
+        </button>
+      </div>
+
+      {/* Body */}
+      <div className="p-6 space-y-4">
+
+        {/* Avatar */}
+        <div className="text-center">
+          <div className="relative inline-block">
+            <img
+              src={
+                image1
+                  ? URL.createObjectURL(image1)
+                  : `${API_URL}/uploads/speaker/${imageName}`
+              }
+              alt="Speaker"
+              className="w-28 h-28 rounded-full object-cover border-4 border-blue-100 shadow"
+              crossOrigin="anonymous"
+            />
+
+            <label
+              htmlFor="upload-input-edit"
+              className="absolute bottom-0 right-0 w-8 h-8 flex items-center justify-center
+                         rounded-full bg-blue-600 text-white text-sm cursor-pointer
+                         hover:bg-blue-700 transition"
+            >
+              ✎
+            </label>
+          </div>
+
+          <p className="text-sm text-gray-500 mt-2">Speaker Photo</p>
+
+          <input
+            id="upload-input-edit"
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={(e) => setImage1(e.target.files[0])}
+          />
+        </div>
+
+        {/* Fields */}
+        {[
+          {
+            label: "Speaker Name",
+            value: name1,
+            setter: setName1,
+            placeholder: "Enter speaker name",
+          },
+          {
+            label: "Speaker Qualification",
+            value: qualification1,
+            setter: setQualification1,
+            placeholder: "Enter qualification",
+          },
+          {
+            label: "Speaker Bios Line 1",
+            value: line11,
+            setter: setLine11,
+            placeholder: "Enter bio line",
+          },
+          {
+            label: "Speaker Bios Line 2",
+            value: line21,
+            setter: setLine21,
+            placeholder: "Enter bio line",
+          },
+          {
+            label: "Speaker Bios Line 3",
+            value: line31,
+            setter: setLine31,
+            placeholder: "Enter bio line",
+          },
+        ].map((field, idx) => (
+          <div key={idx}>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              {field.label}
+            </label>
+
+            <input
+              type="text"
+              value={field.value}
+              onChange={(e) => field.setter(e.target.value)}
+              placeholder={field.placeholder}
+              className="w-full h-11 px-4 rounded-xl
+                         border border-blue-300 bg-white
+                         placeholder-gray-400
+                         focus:outline-none
+                         focus:ring-2 focus:ring-blue-500/40
+                         focus:border-blue-500
+                         hover:border-blue-400
+                         transition-all duration-200"
+            />
+          </div>
+        ))}
+
+      </div>
+
+      {/* Footer */}
+      <div className="flex justify-end px-6 py-4 border-t border-gray-100">
+        <button
+          onClick={() => handelSpeakerUpdate(sid)}
+          className="h-11 px-6 rounded-xl bg-blue-600 text-white font-semibold
+                     shadow hover:bg-blue-700 active:scale-95
+                     transition-all duration-200"
+        >
+          Update Speaker
+        </button>
+      </div>
+    </div>
+  </div>
+)}
             
-            {isPreviewOpen && (<div className="addspeaker" id="exampleModal2" tabIndex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLongTitle"></h5>
-                            <button type="button" onClick={handelClosePreviewPopup} className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            <img 
-                            crossOrigin="anonymous"
-                            src={`${API_URL}/uploads/poster/${selectedPoster}`}
-                            alt='PosterImage'
-                            style={{width:'100%'}}/>
-                        </div>
-
-                    </div>
+                     {isPreviewOpen && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center
+                         bg-black/50 backdrop-blur-sm p-4"
+              onClick={handelClosePreviewPopup}
+            >
+              <div
+                className="w-full max-w-3xl rounded-2xl bg-white shadow-2xl overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Header */}
+                <div className="flex items-center justify-between px-6 py-4 border-b">
+                  <h5 className="text-lg font-semibold text-gray-800">
+                    Poster Preview
+                  </h5>
+          
+                  <button
+                    onClick={handelClosePreviewPopup}
+                    className="w-10 h-10 flex items-center justify-center
+                               rounded-full bg-gray-100 hover:bg-red-100
+                               text-gray-500 hover:text-red-600
+                               text-xl font-bold transition"
+                  >
+                    ✕
+                  </button>
                 </div>
-            </div>)}
+          
+                {/* Body */}
+                <div className="p-6 flex justify-center">
+                  <img
+                    crossOrigin="anonymous"
+                    src={`${API_URL}/uploads/poster/${selectedPoster}`}
+                    alt="Poster Preview"
+                    className="max-h-[70vh] w-auto rounded-xl shadow-lg object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
 
             {showConfirmation && (
               <ConfirmationPopup
