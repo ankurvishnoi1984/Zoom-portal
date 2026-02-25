@@ -8,6 +8,25 @@ import { useNavigate } from 'react-router-dom'
 import Loader from '../../utils/Loader'
 import ConfirmationPopup from '../popup/Popup'
 import { LoginContext } from '../../context/LoginContext'
+
+const ModernInput = ({ label, ...props }) => (
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      {label}
+    </label>
+    <input
+      {...props}
+      className="w-full h-11 px-4 rounded-xl
+                 !border !border-blue-300 !bg-white
+                 placeholder-gray-400
+                 focus:!outline-none
+                 focus:!ring-2 focus:!ring-blue-500/40
+                 focus:!border-blue-500
+                 hover:!border-blue-400
+                 transition-all duration-200"
+    />
+  </div>
+);
 const VirtualMeeting = () => {
 
     const navigate = useNavigate();
@@ -547,24 +566,7 @@ const VirtualMeeting = () => {
 
 const [isWebcastLive, setIsWebcastLive] = useState(false);
 
-const ModernInput = ({ label, ...props }) => (
-  <div>
-    <label className="block text-sm font-medium text-gray-700 mb-1">
-      {label}
-    </label>
-    <input
-      {...props}
-      className="w-full h-11 px-4 rounded-xl
-                 !border !border-blue-300 !bg-white
-                 placeholder-gray-400
-                 focus:!outline-none
-                 focus:!ring-2 focus:!ring-blue-500/40
-                 focus:!border-blue-500
-                 hover:!border-blue-400
-                 transition-all duration-200"
-    />
-  </div>
-);
+
 
    
  console.log("iswebcastLive for Virtual meeting",isWebcastLive)

@@ -65,7 +65,7 @@ const Login = () => {
       {/* Card */}
       <div className="backdrop-blur-lg bg-white/80 shadow-2xl rounded-2xl p-8 border border-white/30">
         <h2 className="text-2xl font-semibold text-gray-800 text-center mb-6">
-          Welcome Back
+          
         </h2>
 
         {/* User ID */}
