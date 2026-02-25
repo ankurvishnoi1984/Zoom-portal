@@ -383,8 +383,6 @@ const EditPhysicalMeeting = () => {
     setLoader(false)
   }
 
-  console.log("all speaker get", allSpeaker)
-
 
 
   return loader ? <Loader /> : (
@@ -631,7 +629,7 @@ const EditPhysicalMeeting = () => {
                                 </button>
 
                                 <button
-                                  onClick={() => handelIndexChange1(4)}
+                                  onClick={() => handelIndexChange1(3)}
                                   className="px-5 py-2 rounded-lg
                                                                                                                                                      bg-blue-600 hover:bg-blue-700
                                                                                                                                                      text-white font-semibold shadow transition"
